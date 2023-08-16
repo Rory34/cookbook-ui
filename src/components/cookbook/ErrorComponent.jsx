@@ -1,6 +1,6 @@
 function ErrorComponent() {
     return (
-        <div>Error</div>
+        <div>Error - Not Logged in</div>
     )
 }
 export default ErrorComponent

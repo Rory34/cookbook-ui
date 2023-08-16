@@ -17,8 +17,8 @@ function LoginComponent() {
         setPassword(event.target.value)
     }
 
-    function handleSubmit() {
-        if (authContext.login(username, password)) {
+    async function handleSubmit() {
+        if (await authContext.login(username, password)) {
             navigate('/recipes')
         } else {
             authContext.setAuthenticated(false)
