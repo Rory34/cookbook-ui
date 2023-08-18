@@ -1,12 +1,12 @@
 import './CookbookApp.css'
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
-import HeaderComponent from "./HeaderComponent";
+import HeaderComponent from "./components/HeaderComponent";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import LogoutComponent from "./LogoutComponent";
-import ErrorComponent from "./ErrorComponent";
-import ListRecipesComponent from "./ListRecipesComponent";
-import LoginComponent from "./LoginComponent";
-import AuthProvider, {useAuth} from "./security/AuthContext";
+import LogoutComponent from "./components/LogoutComponent";
+import ErrorComponent from "./components/ErrorComponent";
+import ListRecipesComponent from "./components/ListRecipesComponent";
+import LoginComponent from "./components/LoginComponent";
+import AuthProvider, {useAuth} from "../security/AuthContext";
 
 function AuthenticatedRoute({children}) {
     const authContext = useAuth()

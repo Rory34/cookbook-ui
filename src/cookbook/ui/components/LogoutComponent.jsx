@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {AuthContext} from "./security/AuthContext";
+import {AuthContext} from "../../security/AuthContext";
 
 function LogoutComponent() {
 

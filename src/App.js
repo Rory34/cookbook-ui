@@ -1,5 +1,5 @@
 import './App.css';
-import CookbookApp from "./components/cookbook/CookbookApp";
+import CookbookApp from "./cookbook/ui/CookbookApp";
 
 function App() {
   return (

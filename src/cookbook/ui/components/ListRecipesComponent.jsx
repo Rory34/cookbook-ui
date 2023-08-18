@@ -1,9 +1,15 @@
+import {useSelector, useDispatch} from "react-redux"
+import { update } from '../../domain/recipeSlice'
+
+
 function ListRecipesComponent() {
-    const recipes = [
-        {id: 1, description: "R1", lastCooked: new Date(2023, 1, 2)},
-        {id: 2, description: "R2", lastCooked: new Date(2023, 1, 3)},
-        {id: 3, description: "R3", lastCooked: new Date(2023, 1, 4)}
-    ]
+    // const recipes = [
+    //     {id: 1, description: "R1", lastCooked: new Date(2023, 1, 2)},
+    //     {id: 2, description: "R2", lastCooked: new Date(2023, 1, 3)},
+    //     {id: 3, description: "R3", lastCooked: new Date(2023, 1, 4)}
+    // ]
+    const recipes = useSelector(state =>  state.recipe.recipes)
+    const dispatch = useDispatch()
     return (
         <div className="container">
             <h1>Recipe List</h1>
@@ -28,6 +34,12 @@ function ListRecipesComponent() {
                     })}
                     </tbody>
                 </table>
+            </div>
+            <div>
+                <button
+                    aria-label="Update"
+                    onClick={() => dispatch(update())}
+                    >Update</button>
             </div>
         </div>
     )
