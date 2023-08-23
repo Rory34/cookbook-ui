@@ -29,7 +29,7 @@ function ListRecipesComponent() {
                         return (
                             <tr key={r.id}>
                                 <td>{r.id}</td>
-                                <td>{r.description}</td>
+                                <td>{r.name}</td>
                                 <td>{r.lastCooked.toDateString()}</td>
                             </tr>
                         )
