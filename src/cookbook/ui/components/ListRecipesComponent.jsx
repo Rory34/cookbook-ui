@@ -1,15 +1,17 @@
 import {useSelector, useDispatch} from "react-redux"
-import { update } from '../../domain/recipeSlice'
+import {updateRecipes} from '../../domain/recipeSlice'
+import {useEffect} from "react";
 
 
 function ListRecipesComponent() {
-    // const recipes = [
-    //     {id: 1, description: "R1", lastCooked: new Date(2023, 1, 2)},
-    //     {id: 2, description: "R2", lastCooked: new Date(2023, 1, 3)},
-    //     {id: 3, description: "R3", lastCooked: new Date(2023, 1, 4)}
-    // ]
-    const recipes = useSelector(state =>  state.recipe.recipes)
+
+    const recipes = useSelector(state => state.recipe.recipes)
     const dispatch = useDispatch()
+    useEffect(() => {
+        dispatch({type: 'GET_DATA'})
+    },
+    // eslint-disable-next-line
+        [])
     return (
         <div className="container">
             <h1>Recipe List</h1>
@@ -38,10 +40,12 @@ function ListRecipesComponent() {
             <div>
                 <button
                     aria-label="Update"
-                    onClick={() => dispatch(update())}
-                    >Update</button>
+                    onClick={() => dispatch(updateRecipes())}
+                >Update</button>
             </div>
+
         </div>
     )
 }
+
 export default ListRecipesComponent
