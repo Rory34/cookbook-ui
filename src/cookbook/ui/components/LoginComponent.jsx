@@ -6,6 +6,7 @@ function LoginComponent() {
 
     const [username, setUsername] = useState("Rory")
     const [password, setPassword] = useState(null)
+    const [isFailedLogin, setFailedLogin] = useState(false)
     const navigate = useNavigate()
 
     const authContext = useAuth()
@@ -19,15 +20,16 @@ function LoginComponent() {
 
     async function handleSubmit() {
         if (await authContext.login(username, password)) {
+            setFailedLogin(false)
             navigate('/recipes')
         } else {
-            authContext.setAuthenticated(false)
+            setFailedLogin(true)
         }
     }
 
     return (
         <div className="Login">
-            {authContext.isAuthenticated !== null && !authContext.isAuthenticated && <div>Failed Login</div>}
+            {isFailedLogin && <div>Failed Login</div>}
             <div className="LoginForm">
                 <div>
                     <label>User name</label>
